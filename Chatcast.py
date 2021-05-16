@@ -8,7 +8,7 @@ def oku(bruh, nigga):
         except:
             continue
         break
-    print("\nOdaya başarıyla bağlanıldı!\n")
+    print("\nSuccessfully connected the room!\n")
     while True:
         try:
             mesaj, kimlik = soket.recvfrom(1024)
@@ -18,10 +18,12 @@ def oku(bruh, nigga):
 soket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 soket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 soket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-adres = input("Bağlanmak istediğiniz ağdaki IP adresiniz:\n>>>")
-port = int(input("\nBağlanmak istediğiniz port:\n>>>"))
-rumuz = input("\nRumuzunuz:\n>>>")
-hosgeldin = "[SİSTEM] " + rumuz + " odaya girdi!"
+print("Chatcast v1.0.0")
+print("2021 (c) Ruzgar Sepci. All rights reserved.")
+adres = input("\nYour IP address in the network you want to connect:\n>>>")
+port = int(input("\nThe port you want to connect:\n>>>"))
+rumuz = input("\nYour nickname:\n>>>")
+hosgeldin = "[SYSTEM] " + rumuz + " joined the room!"
 threading.Thread(target=oku, args=(adres, port)).start()
 while True:
     try:
